@@ -1,0 +1,286 @@
+@import "vars"
+@import "fonts"
+
+::placeholder
+  color: $placeholder-color
+
+::selection
+  background-color: $fon-card
+  color: $placeholder-color
+
+html
+  overflow-x: hidden
+  background-color: #FFFFFF
+
+body
+  font-size: $default-size
+  font-weight: 300
+  min-width: 320px
+  position: relative
+  line-height: $default-line-height
+  font-family: $default-font
+  overflow-x: hidden
+  opacity: 1
+  color: $default-color
+  background-color: #FFFFFF
+  &.fixed
+    max-height: 100vh
+    overflow: hidden
+    #header
+      .overlay
+        background-color: rgba(0, 0, 0, 0.8)
+        z-index: 5
+
+  select
+    background-color: #fff
+    outline: none
+    appearance: none
+
+  input, textarea, select
+    background-color: #fff
+    border: #666 1px solid
+    outline: none
+    padding: 6px 12px
+    border-radius: $radius
+    &.error
+      border: $red 1px solid
+      color: $red
+      &::placeholder
+        color: $red
+    &[type="submit"]
+      color: #ffffff
+      background: $fon-btn
+
+  a
+    text-decoration: none
+    color: $default-color
+
+    &:hover
+      text-decoration: none
+      color: $default-color
+
+.b, strong, b
+  font-weight: bold
+
+ul
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+.flex
+  display: flex
+  align-items: center
+  justify-content: center
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__start
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+  &__beetwen
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+.spacer
+  flex-grow: 1
+.column
+  display: flex
+  flex-direction: column
+.container
+  padding: $container-padding
+  margin: 0 auto
+  max-width: $max-width
+  width: 100%
+  height: 100%
+.bg__cover
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+.bg__contain
+  background-position: center
+  background-repeat: no-repeat
+  background-size: contain
+.round
+  border-radius: $radius
+.point
+  cursor: pointer
+
+.clk
+  &:active
+    transform: translateY(3px)
+    transition-duration: 0.175s
+.hdn
+  display: none
+.mob__down
+  display: flex
+.mob__up
+  display: none
+
+.h2, h2
+  font-size: 30px
+  font-weight: bold
+.center
+  text-align: center
+
+// Гамбургер меню
+.my_hamburger
+  position: absolute
+  top: 24px
+  left: 24px
+  cursor: pointer
+  display: block
+  width: 24px
+  height: 24px
+  .hamburger_block
+    position: relative
+    height: 100%
+    .hamburger_top
+      top: 6px
+    .hamburger_bottom
+      top: 15px
+  .hamburger_top, .hamburger_bottom
+    position: absolute
+    transition: top .3s cubic-bezier(0.04, 0.04, 0.12, 1) .2999s,transform .1s cubic-bezier(0.04, 0.04, 0.12, 1)
+    width: 24px
+    height: 2px
+    background-color: #FFFFFF
+    border-radius: 2px
+  &.is-active
+    .hamburger_block
+      .hamburger_top, .hamburger_bottom
+        transition: top .3s cubic-bezier(0.04, 0.04, 0.12, 1),transform .1s cubic-bezier(0.04, 0.04, 0.12, 1) .29999s
+      .hamburger_top
+        top: 11px
+        transform: rotate(45deg)
+      .hamburger_bottom
+        top: 11px
+        transform: rotate(-45deg)
+// Конец
+
+#header
+  position: relative
+  height: 100vh
+  .overlay
+    transition: $all3
+    position: absolute
+    background-color: transparent
+    z-index: -1
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+.head
+  &__top
+    height: 100px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 24px 0 32px
+  &__logo
+    font-family: 'Oleo Script Swash Caps', cursive
+    background: $fon-btn
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    font-size: 35px
+    text-transform: uppercase
+  &__menu
+    transition: $all3
+    z-index: 10
+    background-color: rgba(0, 0, 0, 0.2)
+    position: absolute
+    height: 100%
+    width: 100%
+    max-width: 480px
+    top: 0
+    left: calc(100% - 74px)
+    display: flex
+    align-items: center
+    .border__menu
+      transition: $all3
+      width: 2px
+      height: 0
+      background-color: rgba(255, 255, 255, 0.2)
+      transition-delay: 0s
+    .menu__list
+      width: calc(100% - 74px)
+      padding-left: 24px
+      font-size: 16px
+      li
+        margin-bottom: 32px
+        transition: $all3
+        transform: scale(1, 0)
+        transition-delay: 0s
+        &:last-child
+          margin-bottom: 0
+      a
+        font-size: 26px
+        transition: $all3
+        &:hover
+          color: $gold
+    &.is-active
+      left: calc(100% - 480px)
+      background-color: rgba(0, 0, 0, 0.8)
+      .border__menu
+        height: 100%
+        transition-delay: 0.3s
+      .menu__list
+        li
+          transition-delay: 0.3s
+          transform: scale(1, 1)
+  &__right
+    width: 74px
+    height: 100%
+    border-left: 1px solid rgba(255, 255, 255, 0.4)
+    justify-content: center
+    align-items: center
+    a
+      border: 1px solid #FFFFFF
+      width: 42px
+      height: 42px
+      border-radius: 100%
+      margin-bottom: 12px
+      transition: $all3
+      &:last-child
+        margin-bottom: 0
+      path
+        transition: $all3
+      &:hover
+        border: 1px solid $gold
+        path
+          fill: $gold
+  &__bottom
+    padding-right: 74px
+    background-color: rgba(0, 0, 0, 0.2)
+    width: 100%
+    position: absolute
+    bottom: 0
+    border-top: 1px solid rgba(255, 255, 255, 0.4)
+    .container
+      height: 50px
+      display: flex
+      justify-content: space-around
+      align-items: center
+  &__center
+    height: 100%
+    padding-right: 74px
+    padding-bottom: 50px
+    .container
+      justify-content: center
+#head__form
+  padding: 24px
+  background-color: rgba(0, 0, 0, 0.3)
+  border-radius: 6px
+  max-width: 480px
+  input, select
+    margin-bottom: 24px
+
+
+#footer
+  height: 400px
+  background-color: black
+
+@import "media"
+// Always at the end
+
+
