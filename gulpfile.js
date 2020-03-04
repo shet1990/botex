@@ -133,7 +133,7 @@ gulp.task('js', function() {
       'app/libs/fancybox/jquery.fancybox.js',
       'app/libs/fancybox/jquery.fancybox.pack.js',
       'app/libs/slick-slider/slick.min.js',
-      //'app/libs/jquery.lazy/jquery.lazy.js',
+      'app/libs/jquery.lazy/jquery.lazy.js',
       //'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
       //'app/libs/leaflet/leaflet.js',
       //'app/libs/leaflet/markercluster.js',

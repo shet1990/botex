@@ -2,15 +2,15 @@
 @import "fonts"
 
 ::placeholder
-  color: $placeholder-color
+  color: $default-color
 
 ::selection
   background-color: $fon-card
-  color: $placeholder-color
+  color: $default-color
 
 html
   overflow-x: hidden
-  background-color: #FFFFFF
+  background-color: $fon-body
 
 body
   font-size: $default-size
@@ -22,7 +22,7 @@ body
   overflow-x: hidden
   opacity: 1
   color: $default-color
-  background-color: #FFFFFF
+  background-color: $fon-body
   &.fixed
     max-height: 100vh
     overflow: hidden
@@ -40,7 +40,7 @@ body
     background-color: #fff
     border: #666 1px solid
     outline: none
-    padding: 6px 12px
+    padding: 8px 12px
     border-radius: $radius
     &.error
       border: $red 1px solid
@@ -48,16 +48,20 @@ body
       &::placeholder
         color: $red
     &[type="submit"]
+      transition: $all3
+      cursor: pointer
       color: #ffffff
-      background: $fon-btn
+      background-color: $accent
+      &:hover
+        background-color: $accent-hov
 
   a
     text-decoration: none
     color: $default-color
-
+    transition: $all3
     &:hover
       text-decoration: none
-      color: $default-color
+      color: $accent
 
 .b, strong, b
   font-weight: bold
@@ -66,6 +70,21 @@ ul
   list-style-type: none
   margin: 0
   padding: 0
+
+
+// Выплывающие блоки
+.fade__up
+  opacity: 0
+  transform: translate(0,80px)
+  transition-property: opacity, transform
+  transition-duration: 1.7s
+  transition-delay: 0s
+  transition-timing-function: cubic-bezier(.19,1,.22,1)
+  &.animate
+    transition-delay: .15s
+    transform: translate(0,0)
+    opacity: 1
+// Конец
 
 .flex
   display: flex
@@ -116,9 +135,30 @@ ul
   display: flex
 .mob__up
   display: none
-
+.padding
+  padding-top: 80px
+  padding-bottom: 80px
+.h1, h1
+  font-size: 42px
+  font-family: 'PlayfairDisplay'
+  color: $accent
+  margin-bottom: 60px
+.before
+  align-self: center
+  position: relative
+  &:after, &:before
+    position: absolute
+    content: ''
+    background-color: $accent
+    width: 40px
+    height: 1px
+    top: 33px
+    left: -80px
+  &:before
+    left: auto
+    right: -80px
 .h2, h2
-  font-size: 30px
+  font-size: 32px
   font-weight: bold
 .center
   text-align: center
@@ -161,6 +201,16 @@ ul
 #header
   position: relative
   height: 100vh
+  color: #FFFFFF
+  *
+    z-index: 2
+  .head__bg
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    z-index: 1
   .overlay
     transition: $all3
     position: absolute
@@ -174,19 +224,16 @@ ul
   &__top
     height: 100px
     display: flex
-    justify-content: space-between
+    justify-content: center
     align-items: center
-    padding: 0 24px 0 32px
+    padding: 0 50px
   &__logo
-    font-family: 'Oleo Script Swash Caps', cursive
-    background: $fon-btn
-    -webkit-background-clip: text
-    -webkit-text-fill-color: transparent
-    font-size: 35px
-    text-transform: uppercase
+    font-family: 'PermanentMarker'
+    font-size: 45px
+    color: $accent
   &__menu
     transition: $all3
-    z-index: 10
+    z-index: 10!important
     background-color: rgba(0, 0, 0, 0.2)
     position: absolute
     height: 100%
@@ -215,9 +262,9 @@ ul
           margin-bottom: 0
       a
         font-size: 26px
-        transition: $all3
+        color: #FFFFFF
         &:hover
-          color: $gold
+          color: $accent
     &.is-active
       left: calc(100% - 480px)
       background-color: rgba(0, 0, 0, 0.8)
@@ -246,9 +293,9 @@ ul
       path
         transition: $all3
       &:hover
-        border: 1px solid $gold
+        border: 1px solid $accent
         path
-          fill: $gold
+          fill: $accent
   &__bottom
     padding-right: 74px
     background-color: rgba(0, 0, 0, 0.2)
@@ -261,24 +308,234 @@ ul
       display: flex
       justify-content: space-around
       align-items: center
+    a
+      color: #FFFFFF
   &__center
     height: 100%
     padding-right: 74px
     padding-bottom: 50px
     .container
-      justify-content: center
+      display: flex
+      align-items: center
+      justify-content: space-between
+    .mob__down
+      p
+        padding: 0 30px
+
 #head__form
   padding: 24px
   background-color: rgba(0, 0, 0, 0.3)
   border-radius: 6px
   max-width: 480px
+  min-width: 214px
+  width: 100%
+  margin-right: 70px
+  .h2
+    margin-bottom: 32px
   input, select
     margin-bottom: 24px
 
+#arrow__up
+  cursor: pointer
+  z-index: 15
+  position: fixed
+  bottom: 32px
+  right: -60px
+  width: 50px
+  height: 50px
+  border-radius: 100%
+  transition: $all3
+  border: 2px solid #FBFBFB
+  background-color: rgba(0, 0, 0, 0.3)
+  &.animate
+    right: 32px
+  svg
+    width: 32px
+    path
+      transition: $all3
+  &:hover
+    border: 2px solid $accent
+    path
+      fill: $accent
+
 
 #footer
-  height: 400px
-  background-color: black
+  background-color: #000
+  color: #FFFFFF
+.foot
+  &__top
+    padding: 24px 0
+    a
+      color: #FFFFFF
+  &__contact
+    align-self: center
+    span, a
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+  &__menu
+    li
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+  &__soc
+    align-self: center
+    a
+      margin-right: 18px
+      &:last-child
+        margin-right: 0
+      path
+        transition: $all3
+      &:hover
+        path
+          fill: $accent
+  &__bot
+    border-top: 1px solid #FFFFFF
+    padding: 24px 0
+
+.blog__list
+  margin-bottom: 40px!important
+.blog__card
+  margin: 10px
+  float: left
+  border: 10px solid #fff
+  overflow: hidden
+  position: relative
+  text-align: center
+  box-shadow: 1px 1px 2px #e6e6e6
+  cursor: default
+  .mask
+    width: 300px
+    height: 200px
+    position: absolute
+    overflow: hidden
+    top: 0
+    left: 0
+    opacity: 0
+    background-color: rgba(58, 1, 132, 0.44)
+    transition: all 0.4s ease-in-out
+  img
+    display: block
+    position: relative
+    transition: $all3
+    width: 300px
+    height: 200px
+  h2
+    transform: translateY(-100px)
+    opacity: 0
+    font-family: 'PlayfairDisplay', serif
+    transition: all 0.2s ease-in-out
+    text-transform: uppercase
+    color: #fff
+    text-align: center
+    position: relative
+    font-size: 19px
+    padding: 10px
+    margin: 20px 0 10px 0
+  p
+    font-style: italic
+    position: relative
+    color: #fff
+    padding: 0px 20px 0px
+    text-align: center
+    transform: translateY(100px)
+    opacity: 0
+    transition: all 0.2s linear
+  a.info
+    display: inline-block
+    text-decoration: none
+    padding: 7px 14px
+    background: #000
+    color: #fff
+    font-family: 'PlayfairDisplay', serif
+    text-transform: uppercase
+    box-shadow: 0 0 1px #000
+    opacity: 0
+    transition: all 0.2s ease-in-out
+  a.info:hover
+    box-shadow: 0 0 5px #000
+  &:hover
+    img
+      transform: scale(1.1)
+    .mask
+      opacity: 1
+    h2, p, a.info
+      opacity: 1
+      transform: translateY(0px)
+    p
+      transition-delay: 0.1s
+    a.info
+      transition-delay: 0.2s
+.item__slick
+  display: flex!important
+  justify-content: center
+.slick-list
+  margin-bottom: 24px
+.slick-dots
+  li
+    width: 20px
+    height: 20px
+    border-radius: 100%
+    position: relative
+    border: 1px solid transparent
+    &.slick-active
+      border: 1px solid $accent
+    &:before
+      content: ''
+      position: absolute
+      top: calc(50% - 4px)
+      right: calc(50% - 4px)
+      width: 8px
+      height: 8px
+      background: $accent
+      border-radius: 100%
+    div
+      display: none
+.quotes
+  position: relative
+  &:before, &:after
+    content: ",,"
+    position: absolute
+    top: 100px
+    left: 30px
+    font-size: 56px
+    color: $accent
+    font-family: Times New Roman,serif
+    font-weight: 700
+    line-height: 0
+    display: block
+    transform: rotate(180deg)
+  &:after
+    top: auto
+    left: auto
+    right: 30px
+    bottom: 100px
+    transform: rotate(0deg)
+.review__card
+  padding: 20px 100px
+  display: flex!important
+  align-items: center
+  color: #FFFFFF
+  .h3
+    font-family: 'PlayfairDisplay'
+    font-size: 26px
+    text-align: center
+    margin-bottom: 24px
+  p
+    text-align: center
+.review__img
+  margin-right: 32px
+  min-width: 240px
+  width: 240px
+  border-radius: 100%
+.foto__list
+.foto__card
+  width: calc(25% - 24px)
+  min-width: 250px
+  padding: 12px
+  img
+    width: 100%
+
 
 @import "media"
 // Always at the end

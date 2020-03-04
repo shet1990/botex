@@ -31,11 +31,49 @@
       flex-direction: column
   #head__form
     padding: 12px
+    margin-right: 0
     .h2
-      font-size: 28px
+      font-size: 24px
+      margin-bottom: 12px
+  .head__top
+    padding: 0 86px 0 12px
+  .head__logo
+    font-size: 30px
+  .padding
+    padding-top: 40px
+    padding-bottom: 40px
+  .review__card
+    flex-direction: column
+    padding: 10px 0
+  .review__img
+    margin-right: 0
+    margin-bottom: 24px
+  .h1, h1
+    font-size: 28px
+    margin-bottom: 20px
+    text-align: center
+  .before
+    &:after, &:before
+      display: none
+  .quotes
+    &:before, &:after
+      top: 324px
+      left: 10px
+      font-size: 45px
+    &:after
+      top: auto
+      left: auto
+      right: 10px
+      bottom: 55px
 
 @media only screen and (max-width: 660px)
-  /**/
+
+  .foot__top
+    flex-direction: column
+    .foot__contact, .foot__soc
+      align-self: flex-start
+      margin-top: 24px
+
 @media only screen and (max-width: 480px)
 
   .head__menu.is-active
@@ -62,4 +100,18 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px)
   /**/
+
+@media (hover: none)
+  .blog__card
+    img
+      transform: scale(1.1)
+    .mask
+      opacity: 1
+    h2, p, a.info
+      opacity: 1
+      transform: translateY(0px)
+    p
+      transition-delay: 0.1s
+    a.info
+      transition-delay: 0.2s
 
