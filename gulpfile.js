@@ -130,8 +130,7 @@ gulp.task('js', function() {
   return gulp.src([
       'app/libs/jquery/dist/jquery.min.js',
       //'app/libs/svg/svg4everybody.js',
-      'app/libs/fancybox/jquery.fancybox.js',
-      'app/libs/fancybox/jquery.fancybox.pack.js',
+      'app/libs/fancybox/jquery.fancybox.min.js',
       'app/libs/slick-slider/slick.min.js',
       'app/libs/jquery.lazy/jquery.lazy.js',
       //'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
