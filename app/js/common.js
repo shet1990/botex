@@ -157,7 +157,7 @@ function distMetric(x,y,x2,y2) {
 }
 
 
-var boxes = document.querySelectorAll(".boxes");
+var boxes = document.querySelectorAll(".foto__cards");
 
 for(var i = 0; i < boxes.length; i++){
 
@@ -167,6 +167,7 @@ for(var i = 0; i < boxes.length; i++){
         var edge = closestEdge(x,y,this.clientWidth, this.clientHeight);
         var overlay = this.childNodes[1];
         var image = this.childNodes[0];
+        console.log(edge);
 
         switch(edge){
             case "left":
@@ -177,21 +178,21 @@ for(var i = 0; i < boxes.length; i++){
                 TweenMax.to(image, .5, {scale: 1.2});
                 break;
             case "right":
-                //overlay.style.top = "0%";
+                overlay.style.top = "0%";
                 overlay.style.left = "100%";
                 //tween overlay from the right
                 TweenMax.to(overlay, .5, {left: '0%'});
                 TweenMax.to(image, .5, {scale: 1.2});
                 break;
             case "top":
-                //overlay.style.top = "-100%";
+                overlay.style.top = "-100%";
                 overlay.style.left = "0%";
                 //tween overlay from the right
                 TweenMax.to(overlay, .5, {top: '0%'});
                 TweenMax.to(image, .5, {scale: 1.2});
                 break;
             case "bottom":
-                //overlay.style.top = "100%";
+                overlay.style.top = "100%";
                 overlay.style.left = "0%";
                 //tween overlay from the right
                 TweenMax.to(overlay, .5, {top: '0%'});
