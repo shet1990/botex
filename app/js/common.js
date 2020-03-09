@@ -45,6 +45,22 @@ $(function() {
     });
     /* Конец */
 
+    /* Модалки */
+    $(".link__modal").fancybox({
+        openEffect	: 'elastic',
+        closeEffect	: 'elastic',
+        type: 'inline',
+        padding     : 0,
+        margin      : 0,
+        closeBtn    : false,
+        fitToView	: false,
+        width		: '100%',
+        height		: '100%',
+        autoSize	: false,
+        closeClick	: false,
+    });
+    /* Конец */
+
     /* Слайдер */
     if($('div').hasClass('blog__list')){
         $('.blog__list').slick({

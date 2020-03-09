@@ -138,6 +138,10 @@ ul
 .padding
   padding-top: 80px
   padding-bottom: 80px
+.h3, h3
+  font-size: 26px
+  font-family: 'PlayfairDisplay'
+  letter-spacing: 1px
 .h1, h1
   font-size: 42px
   font-family: 'PlayfairDisplay'
@@ -163,6 +167,22 @@ ul
   font-weight: normal
 .center
   text-align: center
+
+ul
+  padding-left: 24px
+  li
+    position: relative
+    margin-bottom: 12px
+    &:last-child
+      margin-bottom: 0
+    &:before
+      content: ''
+      position: absolute
+      top: 9px
+      left: -24px
+      width: 12px
+      height: 1px
+      background-color: $accent
 
 // Гамбургер меню
 .my_hamburger
@@ -588,6 +608,94 @@ header
     width: 200%
     height: 200%
     opacity: 0
+
+.course__card
+  position: relative
+  width: calc(33% - 40px)
+  min-width: 296px
+  margin: 20px
+.course__bg
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 20px
+  left: 20px
+  background-color: rgba(0, 0, 0, 0.3)
+  z-index: 1
+  border-radius: 5px
+.course__wrap
+  width: 100%
+  height: 100%
+  border-radius: 5px
+  position: relative
+  z-index: 2
+  padding: 24px
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75)
+  .cover
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, 0.5)
+  .h3
+    position: relative
+    color: $accent
+    margin-bottom: 24px
+  ul
+    margin-bottom: 24px
+    color: #FFFFFF
+  .link__modal
+    position: relative
+    border: 1px solid $accent
+    border-radius: 6px
+    padding: 12px 24px
+    font-weight: bold
+    transition: $all3
+    color: $accent
+    background-color: #fff
+    &:hover
+      background-color: $accent
+      color: #FFF
+
+.form__course
+  border-radius: 5px
+  padding: 48px 24px 24px
+  max-width: 600px
+  border-radius: 4px
+  overflow: hidden
+  //background: linear-gradient(24deg, rgba(131,114,89,1) 0%, rgba(154,127,84,1) 58%, rgba(197,157,95,1) 100%)
+  background: rgba(0, 0, 0, 0.2)
+  transform: translateY(-80px)
+  transition: all .5s
+  .fancybox-slide--html .fancybox-close-small
+    padding: 5px
+  .fancybox-button
+    svg
+    path
+      fill: #FFFFFF
+  input, .h2
+    transform: translateY(-40px)
+    opacity: 0
+    transition-property: transform, opacity
+    transition-duration: .3s
+  .h2
+    color: #ffffff
+    margin-bottom: 36px
+  input
+    font-size: 14px
+    margin-bottom: 16px
+    &[type="submit"]
+.fancybox-slide--current .form__course, .fancybox-slide--current .form__course .h2, .fancybox-slide--current .form__course input
+    transform: translateY(0)
+    opacity: 1
+    transition-duration: .3s
+.fancybox-slide--current .form__course .h2
+  transition-delay: .3s
+.fancybox-slide--current .form__course input
+  transition-delay: .6s
+
+
 
 @import "media"
 // Always at the end
