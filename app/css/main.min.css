@@ -108,13 +108,11 @@ ul { list-style-type: none; margin: 0; padding: 0; }
 
 .center { text-align: center; }
 
-main ul { padding-left: 24px; }
+main ul, .head__center ul { padding-left: 24px; }
 
-main ul li { position: relative; margin-bottom: 12px; }
+main ul li, .head__center ul li { position: relative; margin-bottom: 12px; }
 
-main ul li:last-child { margin-bottom: 0; }
-
-main ul li:before { content: ''; position: absolute; top: 9px; left: -24px; width: 12px; height: 1px; background-color: #c59d5f; }
+main ul li:before, .head__center ul li:before { content: ''; position: absolute; top: 9px; left: -24px; width: 12px; height: 1px; background-color: #c59d5f; }
 
 .my_hamburger { position: absolute; top: 24px; left: 24px; cursor: pointer; display: block; width: 24px; height: 24px; }
 
@@ -138,13 +136,13 @@ header * { z-index: 3; }
 
 header .head__bg { position: absolute; top: 0; bottom: 0; right: 0; left: 0; z-index: 1; }
 
-header .overlay { -webkit-transition: all 0.3s linear; -o-transition: all 0.3s linear; transition: all 0.3s linear; position: absolute; background-color: transparent; z-index: -1; top: 0; bottom: 0; right: 0; left: 0; }
+header .overlay { -webkit-transition: all 0.3s linear; -o-transition: all 0.3s linear; transition: all 0.3s linear; position: absolute; background-color: rgba(0, 0, 0, 0.5); z-index: 2; top: 0; bottom: 0; right: 0; left: 0; }
 
 header.inner__header { height: auto; }
 
 header.inner__header .head__top { height: 70px; background-color: #333; }
 
-header.inner__header .overlay { position: fixed; height: 100vh; }
+header.inner__header .overlay { z-index: -1; position: fixed; height: 100vh; }
 
 .head__top { height: 100px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; padding: 0 50px; }
 
@@ -390,6 +388,20 @@ header.inner__header .overlay { position: fixed; height: 100vh; }
 
 #sitemap ul + h2 { margin-top: 32px; }
 
+.kurs__card { margin-bottom: 32px; }
+
+.kurs__card .kurs__img { position: relative; min-width: 296px; margin-right: 40px; max-width: 400px; width: 100%; }
+
+.kurs__card .kurs__img .h3 { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(0, 0, 0, 0.4); margin-bottom: 0; color: #ffffff; }
+
+.kurs__card .kurs__img img { width: 100%; }
+
+.kurs__card .kurs__info { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; }
+
+.kurs__card .kurs__btn { margin-top: 32px; position: relative; border: 1px solid #c59d5f; border-radius: 6px; padding: 8px 16px; font-weight: bold; -webkit-transition: all 0.3s linear; -o-transition: all 0.3s linear; transition: all 0.3s linear; color: #c59d5f; background-color: #fff; }
+
+.kurs__card .kurs__btn:hover { background-color: #c59d5f; color: #FFF; }
+
 /*==========  Desktop First  ==========*/
 @media only screen and (max-width: 1600px) { /**/ }
 
@@ -419,7 +431,9 @@ header.inner__header .overlay { position: fixed; height: 100vh; }
   .quotes:before, .quotes:after { top: 324px; left: 10px; font-size: 45px; }
   .quotes:after { top: auto; left: auto; right: 10px; bottom: 55px; }
   .course__card { width: 100%; margin: 20px 0; }
-  .course__bg { display: none; } }
+  .course__bg { display: none; }
+  .kurs__card { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
+  .kurs__card .kurs__img { margin-right: 0; margin-bottom: 24px; } }
 
 @media only screen and (max-width: 660px) { .blog__list__outer { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
   .blog__list__outer .item__slick { max-width: 100%; width: 340px; }
