@@ -24,8 +24,9 @@ $(function() {
 
     $(window).on('scroll', function (e) {
         //Изменяем фон хедера в зависимости от фона
-        let header = $('#header').height();
-        if ((header - 200) < $(window).scrollTop()) {
+        //let header = $('#header').height();
+        let height = $(window).height();
+        if ((height - 200) < $(window).scrollTop()) {
             $('#arrow__up').addClass('animate');
         } else {
             $('#arrow__up').removeClass('animate');

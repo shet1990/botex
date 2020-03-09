@@ -29,7 +29,7 @@ body
     #header
       .overlay
         background-color: rgba(0, 0, 0, 0.8)
-        z-index: 5
+        z-index: 20
 
   select
     background-color: #fff
@@ -167,22 +167,22 @@ ul
   font-weight: normal
 .center
   text-align: center
-
-ul
-  padding-left: 24px
-  li
-    position: relative
-    margin-bottom: 12px
-    &:last-child
-      margin-bottom: 0
-    &:before
-      content: ''
-      position: absolute
-      top: 9px
-      left: -24px
-      width: 12px
-      height: 1px
-      background-color: $accent
+main
+  ul
+    padding-left: 24px
+    li
+      position: relative
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+      &:before
+        content: ''
+        position: absolute
+        top: 9px
+        left: -24px
+        width: 12px
+        height: 1px
+        background-color: $accent
 
 // Гамбургер меню
 .my_hamburger
@@ -241,6 +241,14 @@ header
     bottom: 0
     right: 0
     left: 0
+  &.inner__header
+    height: auto
+    .head__top
+      height: 70px
+      background-color: #333
+    .overlay
+      position: fixed
+      height: 100vh
 .head
   &__top
     height: 100px
@@ -254,7 +262,7 @@ header
     color: $accent
   &__menu
     transition: $all3
-    z-index: 10
+    z-index: 25
     background-color: rgba(0, 0, 0, 0.2)
     position: absolute
     height: 100%
@@ -266,7 +274,7 @@ header
     align-items: center
     .border__menu
       transition: $all3
-      width: 2px
+      width: 1px
       height: 0
       background-color: rgba(255, 255, 255, 0.2)
       transition-delay: 0s
@@ -295,6 +303,19 @@ header
       .menu__list
         li
           transition-delay: 0.3s
+          transform: scale(1, 1)
+    &.inner__head
+      height: 100vh
+      background-color: transparent
+      .head__right
+        border-left: 1px solid transparent
+        a
+          transform: scale(1, 0)
+    &.is-active
+      background-color: rgba(0, 0, 0, 0.8)
+      .head__right
+        border-left: 1px solid rgba(255, 255, 255, 0.4)
+        a
           transform: scale(1, 1)
   &__right
     width: 74px
@@ -491,6 +512,20 @@ header
 .item__slick
   display: flex!important
   justify-content: center
+.blog__list__outer
+  justify-content: space-between
+  .item__slick
+    max-width: calc(50% - 40px)
+    min-width: 340px
+    width: 100%
+  .blog__card
+    width: 100%
+    .mask
+      width: 100%
+      height: 100%
+    img
+      width: 100%
+      height: 100%
 .slick-list
   margin-bottom: 24px
 .slick-dots
@@ -697,7 +732,33 @@ header
 .fancybox-slide--current .form__course input
   transition-delay: .6s
 
-
+.contact__line
+  margin-bottom: 24px
+.soc__list
+  margin-top: 40px
+  align-self: center
+  width: 100%
+  max-width: 600px
+  justify-content: space-between
+  a
+    border: 1px solid #000
+    border-radius: 100%
+    width: 42px
+    height: 42px
+    path
+      fill: #000
+      transition: $all3
+    &:hover
+      border: 1px solid $accent
+      path
+        fill: $accent
+#sitemap
+  h2
+    color: $accent
+    margin-bottom: 12px
+    font-size: 26px
+  ul + h2
+    margin-top: 32px
 
 @import "media"
 // Always at the end
