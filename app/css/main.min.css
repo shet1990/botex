@@ -402,6 +402,12 @@ header.inner__header .overlay { z-index: -1; position: fixed; height: 100vh; }
 
 .kurs__card .kurs__btn:hover { background-color: #c59d5f; color: #FFF; }
 
+.blog__wrap { -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; }
+
+.blog__wrap img { width: 33%; min-width: 33%; margin-right: 60px; }
+
+.blog__wrap .blog__date { margin-top: 32px; }
+
 /*==========  Desktop First  ==========*/
 @media only screen and (max-width: 1600px) { /**/ }
 
@@ -433,7 +439,11 @@ header.inner__header .overlay { z-index: -1; position: fixed; height: 100vh; }
   .course__card { width: 100%; margin: 20px 0; }
   .course__bg { display: none; }
   .kurs__card { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
-  .kurs__card .kurs__img { margin-right: 0; margin-bottom: 24px; } }
+  .kurs__card .kurs__img { margin-right: 0; margin-bottom: 24px; }
+  .blog__wrap { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
+  .blog__wrap img { width: 100%; min-width: 100%; margin-right: 0; margin-bottom: 32px; }
+  .blog__wrap .h3 { font-size: 22px; }
+  .blog__wrap .blog__date { margin-top: 12px; font-size: 12px; } }
 
 @media only screen and (max-width: 660px) { .blog__list__outer { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
   .blog__list__outer .item__slick { max-width: 100%; width: 340px; }
